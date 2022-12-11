@@ -5,7 +5,7 @@
 	UserLoginData user = (UserLoginData)session.getAttribute("user");
 	if(user == null )
 	{
-	  response.sendRedirect("../html/index.jsp");
+	  response.sendRedirect("Login.jsp");
 	return;
 	} 
 %>

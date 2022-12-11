@@ -1,5 +1,7 @@
 package meetbothmember.controller;
 
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -59,7 +61,7 @@ public class AdminMemberServlet extends HttpServlet {
 			try {
 				List<Member> list = mc.searchAllMember();
 				request.setAttribute("Member", list);
-				RequestDispatcher rd = request.getRequestDispatcher("/MeetBothMember/admin.jsp");
+				RequestDispatcher rd = request.getRequestDispatcher("/html/MeetBothMember/admin.jsp");
 				rd.forward(request, response);
 			} catch (SQLException e) {
 				e.printStackTrace();
@@ -72,49 +74,35 @@ public class AdminMemberServlet extends HttpServlet {
 				}
 				List<Member> list = mc.searchAllMember();
 				request.setAttribute("Member", list);
-				RequestDispatcher rd = request.getRequestDispatcher("/MeetBothMember/admin.jsp");
+				RequestDispatcher rd = request.getRequestDispatcher("../html/MeetBothMember/admin.jsp");
 				rd.forward(request, response);
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-		}else if (orders.containsKey("showPhoto")) {
-			
-				try {
-					
-					for (String p : orders.get("showPhoto")) {
-						String account = p;
-						Blob blob = mc.ShowPhoto(account);
-
-						InputStream is = null;
-						is = blob.getBinaryStream();
-						
-						response.setContentType("image/png");
-						OutputStream os = response.getOutputStream();
-						int len = 0;
-						byte[] bytes = new byte[8192];
-						while ((len = is.read(bytes)) != -1) {
-							os.write(bytes, 0, len);
-						}
-						
-//						RequestDispatcher rd = request.getRequestDispatcher("/MeetBothMember/show.jsp");
-//						rd.forward(request, response);
-					}
-				} catch (SQLException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
 		}else if(orders.containsKey("register")){
-			response.sendRedirect("../MeetBothMember/register.jsp");
+			response.sendRedirect("../html/MeetBothMember/register.jsp");
 		}else if(orders.containsKey("preupdate")) {
 			try {
 				int ID = 0;
 				for (String p : orders.get("preupdate")) {
 					ID = Integer.parseInt(p);					
 				}
+				Blob blob = mc.ShowPhoto(ID);
+
+				InputStream is = null;
+				is = blob.getBinaryStream();
+				
+				File sv = new File("http://localhost:8080/jspTeam5/html/MeetBothMember");
+				OutputStream os = new FileOutputStream( sv.getPath() + "/photo.jpg" );
+				int len = 0;
+				byte[] bytes = new byte[8192];
+				while ((len = is.read(bytes)) != -1) {
+					os.write(bytes, 0, len);
+				}
 				List<Member> list = mc.searchMemFromID(ID);
 				request.setAttribute("Member", list);
-				RequestDispatcher rd = request.getRequestDispatcher("/MeetBothMember/MemberUpdate.jsp");
+				RequestDispatcher rd = request.getRequestDispatcher("../html/MeetBothMember/MemberUpdate.jsp");
 				rd.forward(request, response);
 			}catch (SQLException e) {
 				// TODO Auto-generated catch block

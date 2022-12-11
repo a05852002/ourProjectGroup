@@ -24,7 +24,6 @@ public class AdminControll extends HttpServlet {
 		// TODO Auto-generated method stub
 		response.setCharacterEncoding("UTF-8");
         response.setContentType("text/html;charset=UTF-8");
-        PrintWriter out = response.getWriter();
         request.setCharacterEncoding("UTF-8");
         
         HttpSession session = request.getSession();
@@ -39,7 +38,6 @@ public class AdminControll extends HttpServlet {
         }
 
         if (username.equals("admin") && password.equals("admin123")) {
-            out.print("Welcome, " + username);
 //            HttpSession session = request.getSession();
             UserLoginData prof = new UserLoginData();
             prof.setId(username);
@@ -48,12 +46,10 @@ public class AdminControll extends HttpServlet {
 //            request.getRequestDispatcher("../html/index.jsp").forward(request, response);
             
         } else {
-            out.print("<font style='color:red;'>對不起，使用者名或密碼錯誤!</font>");
             response.sendRedirect("../html/index.jsp");
 //            request.getRequestDispatcher("../html/Login.jsp").forward(request, response);
             
         }
-        out.close();
 	}
 
 }

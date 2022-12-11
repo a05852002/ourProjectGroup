@@ -112,10 +112,12 @@ public class RegisterServlet extends HttpServlet {
 								mc.updatePhotoFromcAcount(account, is);
 							}
 						}
+					}else {
+						response.sendRedirect("../html/MeetBothMember/register.jsp");
 					}
 					List<Member> list = mc.searchAllMember();
 					request.setAttribute("Member", list);
-					RequestDispatcher rd = request.getRequestDispatcher("/MeetBothMember/admin.jsp");
+					RequestDispatcher rd = request.getRequestDispatcher("../html/MeetBothMember/admin.jsp");
 					rd.forward(request, response);
 				} catch (SQLException e) {
 					e.printStackTrace();

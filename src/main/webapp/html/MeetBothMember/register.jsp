@@ -1,13 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-		<!DOCTYPE html>
+		<! DOCTYPE html>
 		<html lang="en">
 
 		<head>
 			<title>會員管理</title>
 			<meta charset="utf-8" />
 			<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-			<link rel="stylesheet" href="../html/assets/css/main.css" />
+			<link rel="stylesheet" href="../assets/css/main.css" />
 			<script src="https://kit.fontawesome.com/2688683da7.js" crossorigin="anonymous"></script>
 			<script type="text/javascript">
 				function checkpwd()
@@ -26,7 +26,7 @@
 		            check = check.toUpperCase();
 		            let firstCheck = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 		            if (check.length == 10) {
-		                if (firstCheck.indexOf(check[0]) != "-1") {//這邊有問題
+		                if (firstCheck.indexOf(check[0]) != "-1") {
 		                    if (check[1] == 1 || check[1] == 2) {
 		                        let numberCheck = "0123456789"
 		                        for (let i = 2; i < check.length; i++) {

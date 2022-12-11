@@ -29,7 +29,7 @@ public class MemberCRUD {
 	HikariDataSource con = dbfactory.createMSSQLConnection();
 	QueryRunner queryRunner = new QueryRunner(con);
 
-//	搜尋全部
+//	搜尋全部會員
 	public List<Member> searchAllMember() throws SQLException {
 		String sql = "select memberID, account, password, idNumber, memName, memOld, memBirth, memGender,"
 				+ "eMail, phone, address, registime from Member";
@@ -45,6 +45,7 @@ public class MemberCRUD {
 
 		List<Member> list = queryRunner.query(sql, new BeanListHandler<Member>(Member.class), memberID);
 		int count = queryRunner.query(sql1, new ScalarHandler<Integer>(), memberID);
+//		console紀錄
 		System.out.printf("搜尋到了%d筆資料", count);
 		if (count > 0) {
 			System.out.println("查詢結果 : ");
@@ -139,12 +140,12 @@ public class MemberCRUD {
 			System.out.println("已成功修改了" + row + "筆資料");
 		}
 	}
-//	透過帳號輸出大頭照
-	public Blob ShowPhoto(String account) throws SQLException {
+//	透過ID輸出大頭照
+	public Blob ShowPhoto(Integer memberID) throws SQLException {
 		Connection conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=MeetBoth;TrustServerCertificate=True", "sa", "sa123456");
-		String sql = "select photo from Member where account = ?";
+		String sql = "select photo from Member where memberID = ?";
 		PreparedStatement pre = conn.prepareStatement(sql);
-		pre.setString(1, account);
+		pre.setString(1, String.valueOf(memberID));
 		ResultSet rs = pre.executeQuery();
 		rs.next();
 		Blob blob = rs.getBlob(1);
