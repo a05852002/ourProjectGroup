@@ -108,7 +108,7 @@ public class UpdateServlet extends HttpServlet {
 					}
 					List<Member> list = mc.searchAllMember();
 					request.setAttribute("Member", list);
-					RequestDispatcher rd = request.getRequestDispatcher("/MeetBothMember/admin.jsp");
+					RequestDispatcher rd = request.getRequestDispatcher("../MeetBothMember/admin.jsp");
 					rd.forward(request, response);
 				} catch (SQLException e) {
 					// TODO Auto-generated catch block

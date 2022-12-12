@@ -9,6 +9,12 @@
 	return;
 	} 
 %>
+<%
+String path = request.getContextPath();
+String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path
+		+ "/html/assets/css/main.css";
+System.out.println(basePath);
+%>
 <! DOCTYPE HTML>
 <!--
 	Editorial by HTML5 UP
@@ -21,7 +27,7 @@
 	<title>會員管理</title>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-	<link rel="stylesheet" href="../assets/css/main.css" />
+	<link rel="stylesheet" href="<%=basePath%>" />
 	<script src="https://kit.fontawesome.com/2688683da7.js" crossorigin="anonymous"></script>
 </head>
 
@@ -214,11 +220,45 @@
 	</div>
 
 	<!-- Scripts -->
-	<script src="../assets/js/jquery.min.js"></script>
-	<script src="../assets/js/browser.min.js"></script>
-	<script src="../assets/js/breakpoints.min.js"></script>
-	<script src="../assets/js/util.js"></script>
-	<script src="../assets/js/main.js"></script>
+
+	<%
+	String basePath6 = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path
+			+ "/html/assets/js/app.js";
+	%>
+	
+	<%
+	String basePath1 = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path
+			+ "/html/assets/js/jquery.min.js";
+	log(basePath1);
+	%>
+
+	<%
+	String basePath2 = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path
+			+ "/html/assets/js/browser.min.js";
+	%>
+
+	<%
+	String basePath3 = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path
+			+ "/html/assets/js/breakpoints.min.js";
+	%>
+
+	<%
+	String basePath4 = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path
+			+ "/html/assets/js/util.js";
+	%>
+
+	<%
+	String basePath5 = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path
+			+ "/html/assets/js/main.js";
+	%>
+	<script src=<%=basePath6%>></script>
+	<script src=<%=basePath1%>></script>
+	<script src=<%=basePath2%>></script>
+	<script src=<%=basePath3%>></script>
+	<script src=<%=basePath4%>></script>
+	<script src=<%=basePath5%>></script>
+	<script src="https://kit.fontawesome.com/25590258af.js"
+		crossorigin="anonymous"></script>
 
 </body>
 

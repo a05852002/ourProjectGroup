@@ -4,7 +4,10 @@
 String path = request.getContextPath();
 String photoPath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path
 		+ "/MeetBothMember/photo.jpg";
-System.out.println(photoPath);
+%>
+<%
+String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path
+		+ "/html/assets/css/main.css";
 %>
 		<! DOCTYPE html>
 		<html lang="en">
@@ -13,7 +16,7 @@ System.out.println(photoPath);
 			<title>會員管理</title>
 			<meta charset="utf-8" />
 			<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-			<link rel="stylesheet" href="../assets/css/main.css" />
+			<link rel="stylesheet" href="<%=basePath%>" />
 			<script src="https://kit.fontawesome.com/2688683da7.js" crossorigin="anonymous"></script>
 			<script type="text/javascript">
 				function checkpwd(){
@@ -68,12 +71,12 @@ System.out.println(photoPath);
 												<td>
 													<input type="text" style="background-color:	#D0D0D0" name="account" value="${Member.account}" readonly="readonly" required>
 												</td>
-												<td rowspan="4" style="width:250px; height:250px">
-												<div style="float:center;">
-												<img src="<%=photoPath %>>" >
-												<input name='photo' type='file' /><br>&nbsp;
-												</div>
-												</td>
+<!-- 												<td rowspan="4" style="width:250px; height:250px"> -->
+<!-- 												<div style="float:center;"> -->
+<!-- 												<img src="photo.jpg"> -->
+<!-- 												<input name='photo' type='file' /><br>&nbsp; -->
+<!-- 												</div> -->
+<!-- 												</td> -->
 											</tr>
 											<tr>
 												<td style="width: 150px;">

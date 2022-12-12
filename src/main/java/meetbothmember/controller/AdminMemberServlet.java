@@ -88,13 +88,12 @@ public class AdminMemberServlet extends HttpServlet {
 				for (String p : orders.get("preupdate")) {
 					ID = Integer.parseInt(p);					
 				}
-				Blob blob = mc.ShowPhoto(ID);
-
-				InputStream is = null;
-				is = blob.getBinaryStream();
 				
+				Blob blob = mc.ShowPhoto(ID);
+				InputStream is = null;
+				is = blob.getBinaryStream();			
 				File sv = new File("http://localhost:8080/jspTeam5/html/MeetBothMember");
-				OutputStream os = new FileOutputStream( sv.getPath() + "/photo.jpg" );
+				OutputStream os = new FileOutputStream("http://localhost:8080/jspTeam5/html/MeetBothMember/photo.jpg" );
 				int len = 0;
 				byte[] bytes = new byte[8192];
 				while ((len = is.read(bytes)) != -1) {
