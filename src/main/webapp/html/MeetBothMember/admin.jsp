@@ -15,6 +15,15 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
 		+ "/html/assets/css/main.css";
 System.out.println(basePath);
 %>
+<%
+String pathimg = request.getContextPath();
+String basePathimg = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + pathimg
+		+ "/html/images/meatball-icon.png";
+%>
+<%
+String basePathimg2 = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path
+		+ "/html/images/meatball-200.png";
+%>
 <! DOCTYPE HTML>
 <!--
 	Editorial by HTML5 UP
@@ -28,6 +37,7 @@ System.out.println(basePath);
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 	<link rel="stylesheet" href="<%=basePath%>" />
+	<link rel="shortcut icon" href="<%=basePathimg%>" />
 	<script src="https://kit.fontawesome.com/2688683da7.js" crossorigin="anonymous"></script>
 </head>
 
@@ -124,49 +134,68 @@ System.out.println(basePath);
 		<div id="sidebar">
 			<div class="inner">
 
-				<!-- Search -->
-				<section id="search" class="alt">
-					<form method="post" action="#">
-						<input type="text" name="query" id="query" placeholder="Search" />
-					</form>
-				</section>
+<!-- 				Search -->
+<!-- 				<section id="search" class="alt"> -->
+<!-- 					<form method="post" action="#"> -->
+<!-- 						<input type="text" name="query" id="query" placeholder="Search" /> -->
+<!-- 					</form> -->
+<!-- 				</section> -->
 
 				<!-- Menu -->
 				<nav id="menu">
 					<header class="major">
-						<h2>Menu</h2>
+						<h2>
+							<img src="<%=basePathimg2%>" alt="" />
+						</h2>
 					</header>
 					<ul>
-						<li><a href="index.html">首頁</a></li>
-						<li><a href="admin.html">管理</a></li>
-						<li><a href="generic.html">會員</a></li>
-						<li><a href="elements.html">Elements</a></li>
-						<li>
-							<span class="opener">Submenu</span>
+						<li><a href="../index.jsp">首頁 <i class="fa-solid fa-house"></i></a></li>
+						<li><a href="../backIndex.jsp">後台管理 <i
+								class="fa-solid fa-gears"></i></a></li>
+						<li><a href="../MeetBothMember/admin.jsp">會員資料 <i class="fa-solid fa-users"></i></a></li>
+						<li><a href="elements.html">找老師 <i
+								class="fa-solid fa-person-chalkboard"></i></a></li>
+						<li><a href="elements.html">找學生 <i
+								class="fa-solid fa-child"></i></a></li>
+						<li><span class="opener">科目搜尋 <i
+								class="fa-solid fa-book-open"></i></span>
 							<ul>
-								<li><a href="#">Lorem Dolor</a></li>
-								<li><a href="#">Ipsum Adipiscing</a></li>
-								<li><a href="#">Tempus Magna</a></li>
-								<li><a href="#">Feugiat Veroeros</a></li>
-							</ul>
-						</li>
-						<li><a href="#">Etiam Dolore</a></li>
-						<li><a href="#">Adipiscing</a></li>
-						<li>
-							<span class="opener">Another Submenu</span>
+								<li><a href="#">國文</a></li>
+								<li><a href="#">英文</a></li>
+								<li><a href="#">數學</a></li>
+								<li><a href="#">物理</a></li>
+								<li><a href="#">化學</a></li>
+								<li><a href="#">生物</a></li>
+								<li><a href="#">地理</a></li>
+								<li><a href="#">歷史</a></li>
+								<li><a href="#">公民</a></li>
+								<li><a href="#">健康教育</a></li>
+							</ul></li>
+						<li><span class="opener">教學地點搜尋 <i
+								class="fa-solid fa-map-location-dot"></i></span>
 							<ul>
-								<li><a href="#">Lorem Dolor</a></li>
-								<li><a href="#">Ipsum Adipiscing</a></li>
-								<li><a href="#">Tempus Magna</a></li>
-								<li><a href="#">Feugiat Veroeros</a></li>
-							</ul>
-						</li>
-						<li><a href="#">Maximus Erat</a></li>
-						<li><a href="#">Sapien Mauris</a></li>
-						<li><a href="#">Amet Lacinia</a></li>
+								<li><a href="#">台北市</a></li>
+								<li><a href="#">新北市</a></li>
+								<li><a href="#">基隆市</a></li>
+								<li><a href="#">桃園市</a></li>
+								<li><a href="#">新竹縣</a></li>
+								<li><a href="#">苗栗縣</a></li>
+								<li><a href="#">台中市</a></li>
+								<li><a href="#">彰化縣</a></li>
+								<li><a href="#">台南市</a></li>
+								<li><a href="#">南投縣</a></li>
+								<li><a href="#">嘉義縣</a></li>
+								<li><a href="#">雲林縣</a></li>
+								<li><a href="#">高雄市</a></li>
+								<li><a href="#">屏東縣</a></li>
+								<li><a href="#">宜蘭縣</a></li>
+								<li><a href="#">花蓮縣</a></li>
+								<li><a href="#">台東縣</a></li>
+								<li><a href="#">澎湖、金門、馬祖、外島地區</a></li>
+							</ul></li>
+						<li><a href="#">討論區 <i class="fa-regular fa-comments"></i></a></li>
 					</ul>
 				</nav>
-
 				<!-- Section -->
 				<section>
 					<header class="major">

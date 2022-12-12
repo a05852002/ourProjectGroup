@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<!DOCTYPE html>
+<! DOCTYPE html>
 <html>
 <head>
 <%
@@ -92,43 +92,57 @@ String basePathimg2 = request.getScheme() + "://" + request.getServerName() + ":
 				<nav id="menu">
 					<header class="major">
 						<h2>
-							<img src="<%=basePathimg2%>" alt="" />
+							<img src="images/meatball-200.png" alt="" />
 						</h2>
 					</header>
-
 					<ul>
 						<li><a href="index.jsp">首頁 <i class="fa-solid fa-house"></i></a></li>
 						<li><a href="backIndex.jsp">後台管理 <i
 								class="fa-solid fa-gears"></i></a></li>
-						<li><a href="generic.html">會員資料 <i
-								class="fa-solid fa-users-viewfinder"></i></a></li>
-						<li><span class="opener">科目地區資料 <i
-								class="fa-solid fa-magnifying-glass-location"></i></span>
+						<li><a href="MeetBothMember/admin.jsp">會員資料 <i class="fa-solid fa-users"></i></a></li>
+						<li><a href="elements.html">找老師 <i
+								class="fa-solid fa-person-chalkboard"></i></a></li>
+						<li><a href="elements.html">找學生 <i
+								class="fa-solid fa-child"></i></a></li>
+						<li><span class="opener">科目搜尋 <i
+								class="fa-solid fa-book-open"></i></span>
 							<ul>
-								<li><a href="<c:url value='/halaservlet/crudservlet' />">科目資料</a></li>
-								<li><a href="<c:url value='/qaservlet/qacrud' />">地區資料</a></li>
+								<li><a href="#">國文</a></li>
+								<li><a href="#">英文</a></li>
+								<li><a href="#">數學</a></li>
+								<li><a href="#">物理</a></li>
+								<li><a href="#">化學</a></li>
+								<li><a href="#">生物</a></li>
+								<li><a href="#">地理</a></li>
+								<li><a href="#">歷史</a></li>
+								<li><a href="#">公民</a></li>
+								<li><a href="#">健康教育</a></li>
 							</ul></li>
-						<li><a href="elements.html">商品資料 <i
-								class="fa-solid fa-store"></i></a></li>
-						<li><a
-							href="<c:url value='/_04_ShoppingCart/searchAllServlet' />">訂單資料
-								<i class="fa-solid fa-cart-shopping"></i>
-						</a></li>
-						<li><span class="opener">老師學生資料 <i
-								class="fa-solid fa-users"></i></span>
+						<li><span class="opener">教學地點搜尋 <i
+								class="fa-solid fa-map-location-dot"></i></span>
 							<ul>
-								<li><a href="#">老師貼文資料</a></li>
-								<li><a href="#">學生貼文資料</a></li>
+								<li><a href="#">台北市</a></li>
+								<li><a href="#">新北市</a></li>
+								<li><a href="#">基隆市</a></li>
+								<li><a href="#">桃園市</a></li>
+								<li><a href="#">新竹縣</a></li>
+								<li><a href="#">苗栗縣</a></li>
+								<li><a href="#">台中市</a></li>
+								<li><a href="#">彰化縣</a></li>
+								<li><a href="#">台南市</a></li>
+								<li><a href="#">南投縣</a></li>
+								<li><a href="#">嘉義縣</a></li>
+								<li><a href="#">雲林縣</a></li>
+								<li><a href="#">高雄市</a></li>
+								<li><a href="#">屏東縣</a></li>
+								<li><a href="#">宜蘭縣</a></li>
+								<li><a href="#">花蓮縣</a></li>
+								<li><a href="#">台東縣</a></li>
+								<li><a href="#">澎湖、金門、馬祖、外島地區</a></li>
 							</ul></li>
-						<li><span class="opener">哈拉區 <i
-								class="fa-solid fa-comments"></i></span>
-							<ul>
-								<li><a href="<c:url value='/halaservlet/crudservlet' />">討論公告區</a></li>
-								<li><a href="<c:url value='/qaservlet/qacrud' />">Q&A解答區</a></li>
-							</ul></li>
+						<li><a href="#">討論區 <i class="fa-regular fa-comments"></i></a></li>
 					</ul>
 				</nav>
-
 
 				<!-- Section -->
 				<section>

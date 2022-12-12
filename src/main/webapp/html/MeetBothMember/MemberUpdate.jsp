@@ -71,12 +71,12 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
 												<td>
 													<input type="text" style="background-color:	#D0D0D0" name="account" value="${Member.account}" readonly="readonly" required>
 												</td>
-<!-- 												<td rowspan="4" style="width:250px; height:250px"> -->
-<!-- 												<div style="float:center;"> -->
-<!-- 												<img src="photo.jpg"> -->
-<!-- 												<input name='photo' type='file' /><br>&nbsp; -->
-<!-- 												</div> -->
-<!-- 												</td> -->
+												<td rowspan="4" style="width:250px; height:250px">
+												<div style="float:center;">
+												<img src="photo.jpg">
+												<input name='photo' type='file' /><br>&nbsp;
+												</div>
+												</td>
 											</tr>
 											<tr>
 												<td style="width: 150px;">
